@@ -4,8 +4,8 @@ import Image from 'next/image';
 import logo from '@/asset/logo.png'
 const Navbar = () => {
     return (
-        <nav>
-            <div className="navbar shadow-sm max-w-325 mx-auto bg-black">
+        <nav className='sticky z-100 bg-black border-b border-slate-800'>
+            <div className="navbar shadow-sm max-w-300 mx-auto bg-black">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

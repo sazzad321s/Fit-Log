@@ -4,7 +4,7 @@ import banner from "@/asset/banner.png";
 
 const Hero = () => {
     return (
-        <section className="mx-auto mt-6 w-full max-w-325 px-4">
+        <section className="mx-auto mt-6 w-full max-w-300 px-4">
 
             <div className="grid grid-cols-1 items-center gap-2 overflow-hidden rounded-2xl bg-[#222630] px-5 py-5 sm:px-8 sm:py-6 lg:grid-cols-2 lg:px-10 lg:py-6">
 
