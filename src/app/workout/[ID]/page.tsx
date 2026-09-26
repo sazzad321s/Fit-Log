@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Flame, Star, Clock, Bookmark, CalendarDays } from "lucide-react";
+import { Flame, Star, Clock } from "lucide-react";
 import { Iworkout } from "@/types/type";
+import PlanButton from "@/components/PlanButton";
+import SavedButton from "@/components/SavedButton";
 
 interface Iworkoutdetailsparams {
     params: Promise<{
@@ -191,15 +193,9 @@ const WorkoutDetailsPage = async ({
                     {/* Buttons */}
                     <div className="mt-7 flex flex-wrap gap-3">
 
-                        <button className="flex items-center gap-2 rounded-lg bg-lime-400 px-5 py-3 text-xs font-bold text-black transition hover:bg-lime-300">
-                            <CalendarDays size={15} />
-                            ADD TO TODAY&apos;S PLAN
-                        </button>
+                        <PlanButton workout={workout}/>
 
-                        <button className="flex items-center gap-2 rounded-lg border border-gray-700 px-5 py-3 text-xs font-bold text-gray-300 transition hover:bg-gray-800">
-                            <Bookmark size={15} />
-                            SAVE FOR LATER
-                        </button>
+                        <SavedButton workout={workout}/>
 
                     </div>
                 </div>
