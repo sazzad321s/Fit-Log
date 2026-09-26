@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 const WorkoutCard = ({workout}:{workout:Iworkout}) => {
     return (
-        <Link href='/'>
+        <Link href={`/workout/${workout.id}`}>
         <div className="overflow-hidden rounded-xl border border-gray-800 bg-[#15171c]">
             
             {/* Image */}
-            <div className="relative h-[150px] w-full">
+            <div className="relative h-37.5 w-full">
                 <Image
                     src={workout.image}
                     alt={workout.name}
