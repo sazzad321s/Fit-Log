@@ -13,9 +13,9 @@ const LibrarySection = async() => {
     const workouts:Iworkout[] = await getWorkout();
 
     return (
-         <section id='workouts' className='max-w-300 mx-auto my-10'>
+         <section id='workouts' className='max-w-300 xl:mx-auto mx-4 my-10 mb-4'>
             <h2 className='font-bold text-3xl'>THE LIBRARY</h2>
-            <p>Twelve lifts covering every major muscle group.</p>
+            <p className=' mb-4 md:mb-8'>Twelve lifts covering every major muscle group.</p>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                 {
                     workouts.map((workout) => <WorkoutCard key={workout.id} workout={workout}></WorkoutCard>)
