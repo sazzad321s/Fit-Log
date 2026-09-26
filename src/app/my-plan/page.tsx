@@ -92,7 +92,7 @@ const MyPlanPage = () => {
                         Exercises
                     </p>
 
-                    <p className="mt-1 text-3xl font-bold text-lime-400">
+                    <p className="mt-1 text-3xl font-bold text-yellow-300">
                         {totalExercises}
                     </p>
                 </div>
@@ -219,7 +219,7 @@ const MyPlanPage = () => {
 
                             <Link
                                 href="/"
-                                className="mt-5 rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-300"
+                                className="mt-5 rounded-full bg-yellow-300 px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-yellow-500"
                             >
                                 Go to Workouts
                             </Link>
@@ -257,7 +257,7 @@ const MyPlanPage = () => {
 
                             <Link
                                 href="/"
-                                className="mt-5 rounded-full bg-lime-400 px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-lime-300"
+                                className="mt-5 rounded-full bg-yellow-300 px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-yellow-500"
                             >
                                 Go to Workouts
                             </Link>
