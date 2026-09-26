@@ -2,34 +2,51 @@
 import PlanCard from '@/components/PlanCard';
 import SavedCard from '@/components/SavedCard';
 import { PlanContext } from '@/context/PlanContext';
+import { Iworkout } from '@/types/type';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
-import PlanDiv from '@/components/PlanDiv';
-import SavedDiv from '@/components/SavedDiv';
+
 
 const MyPlanPage = () => {
 
-    const { plan,setPlan,saved,setSaved,buttonType,setButtonType } = useContext(PlanContext);
+    const { plan,saved,buttonType,setButtonType } = useContext(PlanContext);
 
-
+   const [sortBy,setSortBy] = useState<"duration" | "calories" | "rating">("duration");
    const handleToggle = (type : 'plan' | 'saved') => {
         setButtonType(type);
+   }
+
+   const sortWorkout = (workout:Iworkout[]) => {
+     const sortedWorkout = [...workout];
+     if(sortBy === "duration"){
+        sortedWorkout.sort((a,b) => b.duration - a.duration)
+     }
+     else if(sortBy === "calories"){
+        sortedWorkout.sort((a,b) => b.caloriesBurned - a.caloriesBurned);
+     }
+     else if(sortBy === "rating"){
+        sortedWorkout.sort((a,b) => b.rating - a.rating);
+     }
+     return sortedWorkout
    }
 
    const currentType = buttonType === 'plan' ? plan : saved;
    const totalExercises = currentType.length;
    const totalMinutes = currentType.reduce((total,workout) => total+workout.duration,0)
    const totalCalories = currentType.reduce((total,workout) => total+workout.caloriesBurned,0)
+   const sortedPlan = sortWorkout(plan);
+   const sortedSaved = sortWorkout(saved);
+
 
     return (
-        <div className="lg:w-300 w-auto mx-4 lg:mx-auto">
-            <h2>MY PLAN</h2>
+        <div className="lg:w-300 w-auto mx-4 lg:mx-auto my-4 md:my-8">
+            <h2 className='font-bold text-5xl mb-2'>MY PLAN</h2>
             <p>Cap of five lifts for today. Finish them, then load more.</p>
 
 
             {/* Dynamic Section */}
-            <div className="mt-8 grid grid-cols-1 overflow-hidden rounded-xl border border-gray-800 bg-[#15181e] sm:grid-cols-3">
+            <div className="mt-4 mb-4 grid grid-cols-1 overflow-hidden rounded-xl border border-gray-800 bg-[#15181e] sm:grid-cols-3">
 
     {/* Exercises */}
     <div className="px-5 py-6 sm:border-r sm:border-gray-800">
@@ -66,6 +83,7 @@ const MyPlanPage = () => {
 
 </div>
 
+<div className='flex justify-between items-center'>
 
      <div className="flex w-fit items-center rounded-xl border border-gray-800 bg-[#111318] p-1">
          <button
@@ -91,16 +109,27 @@ const MyPlanPage = () => {
          </button>
      </div>
 
+    <div className='flex gap-2 items-center'>
+       <p>Sort by</p>
+       <select defaultValue="Server location" className="select select-neutral"
+       value={sortBy}
+       onChange={(e) => setSortBy(e.target.value as "duration" | "calories" | "rating")}>
+        <option>Duration</option>
+        <option>Calories</option>
+        <option>Rating</option>
+       </select>
+    </div>
+</div>
 
 
      {/* Dynamic Section */}
-     <div className='mt-8'>
+     <div className='mt-4'>
         {
             buttonType === 'plan' ? (
                 plan.length > 0 ? (
-                    <div>
+                    <div className='grid grid-cols-1 gap-2 md:gap-3 '>
                         {
-                            plan.map(workout => <PlanCard key={workout.id} workout={workout}></PlanCard>)
+                            sortedPlan.map(workout => <PlanCard key={workout.id} workout={workout}></PlanCard>)
                         }
                     </div>
                 ) : (<div>
@@ -112,9 +141,9 @@ const MyPlanPage = () => {
                 )
             ) : 
                saved.length > 0 ? (
-                <div>
+                <div className='grid grid-cols-1 gap-2 md:gap-3 '>
                     {
-                        saved.map(workout => <SavedCard key={workout.id} workout={workout}></SavedCard>)
+                        sortedSaved.map(workout => <SavedCard key={workout.id} workout={workout}></SavedCard>)
                     }
                 </div>
             ) : (
