@@ -35,8 +35,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link href='/' className="btn bg-black border-none">Plan <span className='text-black bg-yellow-300 rounded-full px-1.5'>{plan.length}</span></Link>
-    <Link href='/' className="btn text-slate-300 bg-black border-none">Saved <span className='text-white border-slate-700 border bg-black rounded-full px-1.5'>{saved.length}</span></Link>
+    <Link href='/my-plan' className="btn bg-black border-none">Plan <span className='text-black bg-yellow-300 rounded-full px-1.5'>{plan.length}</span></Link>
+    <Link href='/my-plan' className="btn text-slate-300 bg-black border-none">Saved <span className='text-white border-slate-700 border bg-black rounded-full px-1.5'>{saved.length}</span></Link>
   </div>
 </div>
         </nav>
