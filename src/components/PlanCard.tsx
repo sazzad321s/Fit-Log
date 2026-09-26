@@ -77,14 +77,14 @@ const PlanCard = ({ workout }: { workout: Iworkout }) => {
 
                 <Link
                     href={`/workout/${workout.id}`}
-                    className="hidden rounded-full border border-gray-700 px-4 py-2 text-[10px] font-medium text-gray-300 transition hover:border-gray-500 hover:text-white sm:block"
+                    className=" rounded-full border border-gray-700 px-4 py-2 text-[10px] font-medium text-gray-300 transition hover:border-gray-500 hover:text-white sm:block"
                 >
                     View Details
                 </Link>
 
                 <button
     onClick={() => toast.success(`${workout.name} marked as done`)}
-    className="hidden items-center rounded-full border border-gray-700 px-4 py-1 text-[10px] text-black bg-[#C2F800] font-semibold transition hover:bg-[#cae70d] sm:flex"
+    className=" items-center rounded-full border border-gray-700 px-4 py-1 text-[10px] text-black bg-[#C2F800] font-semibold transition hover:bg-[#cae70d] sm:flex"
 >
     <Check size={22} />
     Mark as Done
