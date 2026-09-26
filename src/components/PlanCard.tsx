@@ -6,6 +6,7 @@ import { Clock, Flame, Star, X } from "lucide-react";
 import { useContext } from "react";
 import { PlanContext } from "@/context/PlanContext";
 import toast from "react-hot-toast";
+import { Check } from "lucide-react";
 
 const PlanCard = ({ workout }: { workout: Iworkout }) => {
 
@@ -79,6 +80,13 @@ const PlanCard = ({ workout }: { workout: Iworkout }) => {
                     className="hidden rounded-full border border-gray-700 px-4 py-2 text-[10px] font-medium text-gray-300 transition hover:border-gray-500 hover:text-white sm:block"
                 >
                     View Details
+                </Link>
+
+                 <Link
+                    href={`/workout/${workout.id}`}
+                    className="hidden items-center rounded-full border border-gray-700 px-4 py-1 text-[10px] text-black bg-[#C2F800] font-semibold transition  hover:bg-[#cae70d] sm:flex"
+                >
+                   <Check /> Mark as Done
                 </Link>
 
                 <button
