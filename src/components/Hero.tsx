@@ -8,7 +8,7 @@ const Hero = () => {
 
             <div className="grid grid-cols-1 items-center gap-2 overflow-hidden rounded-2xl bg-[#222630] px-5 py-5 sm:px-8 sm:py-6 lg:grid-cols-2 lg:px-10 lg:py-6">
 
-                {/* Left Content */}
+             
                 <div className="flex flex-col items-start">
 
                     <p className="text-xs font-semibold tracking-widest text-yellow-400 sm:text-sm">
@@ -27,15 +27,16 @@ const Hero = () => {
                         and watch the weeks add up.
                     </p>
 
-                    <button
-                        className="mt-4 rounded-lg bg-yellow-400 px-5 py-2.5 text-xs font-bold text-black transition hover:bg-yellow-300 sm:text-sm"
-                    >
-                        BROWSE WORKOUTS
-                    </button>
+                   <a
+                       href="#workouts"
+                       className="mt-4 rounded-lg bg-yellow-400 px-5 py-2.5 text-xs font-bold text-black"
+                     >
+                      BROWSE WORKOUTS
+                    </a>
 
                 </div>
 
-                {/* Right Image */}
+            
                 <div className="flex items-center justify-center lg:justify-end">
 
                     <Image

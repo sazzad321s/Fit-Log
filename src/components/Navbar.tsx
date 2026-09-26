@@ -4,7 +4,7 @@ import Image from 'next/image';
 import logo from '@/asset/logo.png'
 const Navbar = () => {
     return (
-        <nav className='sticky z-100 bg-black border-b border-slate-800'>
+        <nav className='sticky top-0 z-100 bg-black border-b border-slate-800'>
             <div className="navbar shadow-sm max-w-300 mx-auto bg-black">
   <div className="navbar-start">
     <div className="dropdown">
@@ -14,7 +14,7 @@ const Navbar = () => {
       <ul
         tabIndex={-1}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><Link href='/'>Workouts</Link></li>
+        <li><Link href='/workout'>Workouts</Link></li>
         <li><Link href='/'>My Plan</Link></li>
       </ul>
     </div>
@@ -23,7 +23,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><Link href='/' className='text-slate-300'>Workouts</Link></li>
+      <li><Link href='/workout' className='text-slate-300'>Workouts</Link></li>
       <li><Link href='/'  className='text-slate-300'>My Plan</Link></li>
     </ul>
   </div>
